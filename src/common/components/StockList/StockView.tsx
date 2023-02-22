@@ -11,7 +11,12 @@ export const StockList: FC<Props> = ({ list }) => {
     <div>
       {list.map((stock) => {
         return (
-          <Link key={stock["1. symbol"]} href={`/detail/${stock["1. symbol"]}`}>
+          <Link
+            key={`${stock["1. symbol"]}-${stock["2. name"]}`}
+            href={{
+              pathname: `/detail/${stock["1. symbol"]}-${stock["2. name"]}`,
+            }}
+          >
             <div className="py-2 flex justify-between border-b-2 border-b-zinc-800">
               <span className="text-left">{stock["1. symbol"]}</span>
               <span className="text-right">{stock["2. name"]}</span>
