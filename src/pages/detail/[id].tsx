@@ -22,8 +22,16 @@ const StockDetailPage = () => {
     }
   );
 
-  if (!stockDetails.data) {
+  if (!stockDetails.data || stockDetails.isLoading) {
     return <div className="w-full h-full">Loading...</div>;
+  }
+
+  if (stockDetails.data?.error) {
+    return (
+      <div className="w-full h-full">
+        Error: this stock detail is not exsists.
+      </div>
+    );
   }
 
   return (
