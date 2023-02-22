@@ -1,4 +1,5 @@
-import { StockDetails, StocksDetailsResponse } from "@/types/api/api";
+import { DailyVolumesResponse } from "@/types/api/dailyVolumes";
+import { StockDetails, StocksDetailsResponse } from "@/types/api/stockDetails";
 
 const BASE_URL = "https://www.alphavantage.co/query?";
 const API_KEY = process.env.NEXT_PUBLIC_ALPHAVANTAGE_API_KEY ?? "";
@@ -56,5 +57,20 @@ export const getCachedByKeyword = (keyword: string) => {
 
       return json;
     })
+    .catch(() => null);
+};
+
+export const getDailyChartDataBySmbol = (
+  symbol: string
+): Promise<DailyVolumesResponse> => {
+  const url = composeURL({
+    function: "TIME_SERIES_DAILY_ADJUSTED",
+    symbol,
+  });
+
+  return fetch(url, {
+    method: "GET",
+  })
+    .then(async (res) => res.json())
     .catch(() => null);
 };

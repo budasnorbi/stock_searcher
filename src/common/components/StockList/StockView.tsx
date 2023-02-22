@@ -1,4 +1,4 @@
-import { StocksDetailsWidthId } from "@/types/api/api";
+import { StocksDetailsWidthId } from "@/types/api/stockDetails";
 import Link from "next/link";
 import { FC } from "react";
 

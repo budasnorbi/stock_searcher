@@ -1,4 +1,4 @@
-import { StocksDetailsWidthId } from "@/types/api/api";
+import { StocksDetailsWidthId } from "@/types/api/stockDetails";
 import Redis from "ioredis";
 
 const redis = new Redis(process.env.REDIS_URL ?? "");

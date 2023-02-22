@@ -1,7 +1,8 @@
 import { getCache } from "@/common/api";
+import { DailyStockChart } from "@/common/components/charts/DailyStockChart";
 
 import { TextBox } from "@/common/components/ui/TextBox/TextBox";
-import { StocksDetailsWidthId } from "@/types/api/api";
+import { StocksDetailsWidthId } from "@/types/api/stockDetails";
 import { useRouter } from "next/router";
 import { useQuery } from "react-query";
 
@@ -26,87 +27,107 @@ const StockDetailPage = () => {
   }
 
   return (
-    <div className="grid gap-4 grid-cols-5 grid-rows-3 p-4">
+    <div className="h-screen w-screen grid gap-4 grid-cols-3 grid-rows-4 p-4">
       <TextBox
         title="symbol"
         text={stockDetails.data["1. symbol"]}
-        gridPositions={{
-          column: { start: 0, end: 1 },
-          row: { start: 0, end: 1 },
+        style={{
+          gridRowStart: 0,
+          gridRowEnd: 1,
+          gridColumnStart: 0,
+          gridColumnEnd: 1,
         }}
       />
 
       <TextBox
         title="name"
         text={stockDetails.data["2. name"]}
-        gridPositions={{
-          column: { start: 1, end: 2 },
-          row: { start: 0, end: 1 },
+        style={{
+          gridRowStart: 0,
+          gridRowEnd: 1,
+          gridColumnStart: 1,
+          gridColumnEnd: 2,
         }}
       />
 
       <TextBox
         title="type"
         text={stockDetails.data["3. type"]}
-        gridPositions={{
-          column: { start: 2, end: 3 },
-          row: { start: 0, end: 1 },
+        style={{
+          gridRowStart: 0,
+          gridRowEnd: 1,
+          gridColumnStart: 2,
+          gridColumnEnd: 3,
         }}
       />
 
       <TextBox
         title="region"
         text={stockDetails.data["4. region"]}
-        gridPositions={{
-          column: { start: 3, end: 4 },
-          row: { start: 0, end: 1 },
+        style={{
+          gridRowStart: 0,
+          gridRowEnd: 1,
+          gridColumnStart: 3,
+          gridColumnEnd: 4,
         }}
       />
 
       <TextBox
         title="market open"
         text={stockDetails.data["5. marketOpen"]}
-        gridPositions={{
-          column: { start: 4, end: 5 },
-          row: { start: 0, end: 1 },
+        style={{
+          gridRowStart: 1,
+          gridRowEnd: 2,
+          gridColumnStart: 0,
+          gridColumnEnd: 1,
         }}
       />
 
       <TextBox
         title="market close"
         text={stockDetails.data["6. marketClose"]}
-        gridPositions={{
-          column: { start: 0, end: 1 },
-          row: { start: 1, end: 2 },
+        style={{
+          gridRowStart: 1,
+          gridRowEnd: 2,
+          gridColumnStart: 1,
+          gridColumnEnd: 2,
         }}
       />
 
       <TextBox
         title="timezone"
         text={stockDetails.data["7. timezone"]}
-        gridPositions={{
-          column: { start: 1, end: 2 },
-          row: { start: 1, end: 2 },
+        style={{
+          gridRowStart: 1,
+          gridRowEnd: 2,
+          gridColumnStart: 2,
+          gridColumnEnd: 3,
         }}
       />
 
       <TextBox
         title="timezone"
         text={stockDetails.data["8. currency"]}
-        gridPositions={{
-          column: { start: 2, end: 3 },
-          row: { start: 1, end: 2 },
+        style={{
+          gridRowStart: 1,
+          gridRowEnd: 2,
+          gridColumnStart: 3,
+          gridColumnEnd: 4,
         }}
       />
 
       <TextBox
         title="match score"
         text={stockDetails.data["9. matchScore"]}
-        gridPositions={{
-          column: { start: 3, end: 4 },
-          row: { start: 1, end: 2 },
+        style={{
+          gridRowStart: 2,
+          gridRowEnd: 3,
+          gridColumnStart: 0,
+          gridColumnEnd: 1,
         }}
       />
+
+      {/* <DailyStockChart /> */}
     </div>
   );
 };

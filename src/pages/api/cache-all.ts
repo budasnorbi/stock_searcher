@@ -1,5 +1,5 @@
 import { cacheValues, getCache } from "@/common/utils/redis";
-import { StockDetails, StocksDetailsWidthId } from "@/types/api/api";
+import { StocksDetailsWidthId } from "@/types/api/stockDetails";
 
 export default async function handler(req: any, res: any) {
   if (req.method === "POST") {

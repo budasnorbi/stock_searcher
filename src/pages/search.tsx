@@ -5,10 +5,10 @@ import {
   getStocksDetails,
 } from "@/common/api";
 import { useQuery } from "react-query";
-import { StockList } from "@/common/components/StockList/StockView";
+import { StockList } from "@/common/components/stocklist/StockView";
 import { SearchInput } from "@/common/components/ui/SearchInput/SearchInput";
 import { nanoid } from "nanoid";
-import { StocksDetailsWidthId } from "@/types/api/api";
+import { StocksDetailsWidthId } from "@/types/api/stockDetails";
 
 export default function SeatchPage() {
   const [searchValue, setSearchValue] = useState<string>("");
