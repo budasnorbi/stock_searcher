@@ -1,11 +1,11 @@
 import { cacheValues, getCache } from "@/common/utils/redis";
-import { StockDetails } from "@/types/api/api";
+import { StockDetails, StocksDetailsWidthId } from "@/types/api/api";
 
 export default async function handler(req: any, res: any) {
   if (req.method === "POST") {
     const json = JSON.parse(req.body) as {
       keyword: string;
-      data: StockDetails[];
+      data: StocksDetailsWidthId[];
     };
     await cacheValues(json);
     return res.status(200).json({ status: "OK" });

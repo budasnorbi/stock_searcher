@@ -1,9 +1,9 @@
-import { StockDetails } from "@/types/api/api";
+import { StockDetails, StocksDetailsWidthId } from "@/types/api/api";
 import Link from "next/link";
 import { FC } from "react";
 
 interface Props {
-  list: StockDetails[];
+  list: StocksDetailsWidthId[];
 }
 
 export const StockList: FC<Props> = ({ list }) => {
@@ -12,9 +12,9 @@ export const StockList: FC<Props> = ({ list }) => {
       {list.map((stock) => {
         return (
           <Link
-            key={`${stock["1. symbol"]}-${stock["2. name"]}`}
+            key={stock["id"]}
             href={{
-              pathname: `/detail/${stock["1. symbol"]}-${stock["2. name"]}`,
+              pathname: `/detail/${stock["id"]}`,
             }}
           >
             <div className="py-2 flex justify-between border-b-2 border-b-zinc-800">

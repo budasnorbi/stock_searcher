@@ -1,4 +1,4 @@
-import { getCachedValueByKeyword } from "@/common/utils/redis";
+import { getCachedValuesByKeyword } from "@/common/utils/redis";
 
 export default async function handler(req: any, res: any) {
   if (req.method === "GET") {
@@ -7,7 +7,7 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: "Keyword needed" });
     }
 
-    const data = await getCachedValueByKeyword(keyword);
+    const data = await getCachedValuesByKeyword(keyword);
 
     if (!data) {
       return res

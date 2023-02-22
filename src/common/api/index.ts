@@ -1,4 +1,4 @@
-import { SearchResponse, StockDetails } from "@/types/api/api";
+import { StockDetails } from "@/types/api/api";
 
 const BASE_URL = "https://www.alphavantage.co/query?";
 const API_KEY = process.env.NEXT_PUBLIC_ALPHAVANTAGE_API_KEY ?? "";
@@ -15,9 +15,9 @@ const composeURL = (params: { [key: string]: string | number }) => {
   return BASE_URL + urlParams;
 };
 
-export const fetchStocksDetails = (
+export const getStocksDetails = (
   name: string
-): Promise<SearchResponse | null> => {
+): Promise<StockDetails[] | null> => {
   const url = composeURL({
     function: "SYMBOL_SEARCH",
     keywords: name,
@@ -28,13 +28,13 @@ export const fetchStocksDetails = (
     .catch((error) => null);
 };
 
-export const fetchCachedStockDetail = (id: string) => {
+export const getCache = (id: string) => {
   return fetch(`/api/cache?id=${id}`, { method: "GET" }).then((res) =>
     res.json()
   );
 };
 
-export const fetchCacheAllResult = (data: {
+export const postCacheAll = (data: {
   keyword: string;
   data: StockDetails[];
 }) => {
@@ -44,7 +44,7 @@ export const fetchCacheAllResult = (data: {
   }).then((res) => res.json());
 };
 
-export const fetchCachedByKeyword = (keyword: string) => {
+export const getCachedByKeyword = (keyword: string) => {
   return fetch(`/api/cache-by-keyword?keyword=${keyword}`, {
     method: "GET",
   })
@@ -53,7 +53,7 @@ export const fetchCachedByKeyword = (keyword: string) => {
       if (res.status === 400) {
         return null;
       }
-      console.log("this is the cache");
+
       return json;
     })
     .catch(() => null);
