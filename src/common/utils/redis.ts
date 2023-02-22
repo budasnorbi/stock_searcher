@@ -1,11 +1,7 @@
-import { StockDetails, StocksDetailsWidthId } from "@/types/api/api";
+import { StocksDetailsWidthId } from "@/types/api/api";
 import Redis from "ioredis";
 
 const redis = new Redis(process.env.REDIS_URL ?? "");
-
-redis.on("connect", () => {
-  console.log("Redis connected ");
-});
 
 redis.on("error", function (err) {
   console.log(err);

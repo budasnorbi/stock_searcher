@@ -25,9 +25,8 @@ const StockDetailPage = () => {
     return <div className="w-full h-full">Loading...</div>;
   }
 
-  console.log(stockDetails.data);
   return (
-    <div className="grid grid-cols-5 grid-rows-3">
+    <div className="grid gap-4 grid-cols-5 grid-rows-3 p-4">
       <TextBox
         title="symbol"
         text={stockDetails.data["1. symbol"]}

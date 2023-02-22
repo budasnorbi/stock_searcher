@@ -1,4 +1,4 @@
-import { StockDetails } from "@/types/api/api";
+import { StockDetails, StocksDetailsResponse } from "@/types/api/api";
 
 const BASE_URL = "https://www.alphavantage.co/query?";
 const API_KEY = process.env.NEXT_PUBLIC_ALPHAVANTAGE_API_KEY ?? "";
@@ -17,7 +17,7 @@ const composeURL = (params: { [key: string]: string | number }) => {
 
 export const getStocksDetails = (
   name: string
-): Promise<StockDetails[] | null> => {
+): Promise<StocksDetailsResponse | null> => {
   const url = composeURL({
     function: "SYMBOL_SEARCH",
     keywords: name,

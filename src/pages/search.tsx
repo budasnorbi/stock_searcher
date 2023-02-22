@@ -50,7 +50,7 @@ export default function SeatchPage() {
 
   return (
     <div className="w-96 mx-auto">
-      <h1 className="text-center text-2xl font-bold">
+      <h1 className="text-center text-2xl font-bold my-5">
         Search for stock details
       </h1>
       <SearchInput

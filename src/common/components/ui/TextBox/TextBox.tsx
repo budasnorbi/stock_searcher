@@ -10,9 +10,9 @@ interface Props {
 
 export const TextBox: FC<Props> = ({ title, text, gridPositions }) => {
   return (
-    <div className={`p-3 ${composeGridPositions(gridPositions)}`}>
-      <h1 className="row-span-1 col-span-1 text-3xl uppercase">{title}</h1>
-      <h3 className="row-span-1 col-span-1 text-1xl">{text}</h3>
+    <div className={`${composeGridPositions(gridPositions)}`}>
+      <h1 className="text-3xl uppercase">{title}</h1>
+      <h3 className="text-1xl">{text}</h3>
     </div>
   );
 };
